@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+h1 {
+	text-align: center;
+	background-color: #284B63;
+	color: #F4F9E9;
+	font-size: 3.5em;
+	border-radius: 0.25em;
+	margin-block-start: 0.25em;
+	margin-block-end: 0.1em;
+	width: 95%;
+	display: block;
+	font-family: Monaco, Copperplate, Georgia;
+}
+
+iframe {
+	width: 80%;
+	height: 35em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2em;
+	border: #284B63;
+	margin-top: 0.6375em;
+	margin-bottom: 0.6375em;
+}
+
+h3 {
+	text-align: center;
+	background-color: #284B63;
+	color: #F4F9E9;
+	font-size: 3.5em;
+	border-radius: 0.25em;margin-block-start: 0.25em;
+	margin-block-end: 0.1em;m;
+	width: 97.5%;
+	display: block;
+	font-family: Monaco, Copperplate, Georgia;
+	opacity: 0.7;
+}
+
+h4 {
+	text-align: center;
+	background-color: #153243;
+	color: #F4F9E9;
+	font-size: 3.5em;
+	border-radius: 0.25em;
+	width: 80%;
+	display: block;
+	font-family: Monaco, Copperplate, Georgia;
+	margin-block-start: 0em;
+	margin-block-end: 0em;
+}
+
+p {
+	font-size: 1.4em;
+	background-color: #284B63;
+	color: #F4F9E9;
+	border-radius: 0.5em;
+	padding: 0.5em;
+	margin: 0.6375em;
+	font-family: Monaco, Copperplate, Georgia;
+}
+
+.p2 {
+	font-size: 1.4em;
+	color: #284B63;
+	text-align: center;
+	background: transparent;
+	padding: 0.5em;
+	text-decoration: none;
+	font-family: Monaco, Copperplate, Georgia;
+	margin: 0em;
+}
+
+body {
+	background-color: #B4B8AB;
+	margin: 0px;
+	height: 100%;
+	font-family: Monaco, Copperplate, Georgia;
+}
+
+html {
+	height: 100%;
+	font-family: Monaco, Copperplate, Georgia;
+}
+
+div {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	text-align: center;
+	padding-inline-start: 0px;
+}
+
+nav {
+	margin: 0px;
+	background-color: #153243;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-left: 0px;
+	padding-right: 0px;
+	z-index: 2;
+}
+
+li {
+	font-size: 1.6em;
+	display: inline;
+	margin: 0.2em;
+}
+
+li a {
+	padding: 0.2em;
+	text-decoration: none;
+	color: #F4F9E9;
+	font-family: Monaco, Copperplate, Georgia;
+}
+
+/*Source: https://www.w3schools.com/cssref/sel_hover.asp*/
+li a:hover {
+	background-color: #F4F9E9;
+	color: #707070;
+	border-radius: 0.25em;
+	width: 10em;
+}
+
+.filledIn {
+	background-color: #707070;
+	border-radius: 0.25em;
+	width: 10em;
+}
+
+a {
+	color: #B4B8AB;
+}
+
+.a2 {
+	color: #284B63;
+	text-decoration: none;
+}
+
+.whiteborder {
+	border-radius: 2em;
+	border-style: solid;
+	border-color: #F4F9E9;
+	border-width: 0.5em;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.centerPic {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.imgPad {
+	margin: 0.25em;
+}
+
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.blank {
+	color: #B4B8AB;
+	background-color: #B4B8AB;
+}
+
+.transparent {
+	margin: 0px;
+	background-color: black;
+	background-size: cover;
+	opacity: 1;
+}
+
+/*Source: https://www.w3schools.com/howto/howto_css_parallax.asp*/
+.parallax {
+	background-image: url("images/Suit2.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+	background-color: #B4B8AB;
+}
+
+.parallax-curtain {
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+	background: linear-gradient(rgba(0,0,0,0) 60%, rgba(180, 184, 171, 1) 100%);
+}
+
+/*Image Source: https://i.redd.it/vxb5lk0zxra71.png*/
+.parallaxCS {
+	background-image: url("images/codeWall.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
+/*Image Source: https://labs.openai.com/e/fw0XTJSIdyAN54x2x19mjGeO/m1TuMHjVWtrlltavzRlcHcg6*/
+.parallaxHum {
+	background-image: url("images/humWall.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
+/*Image Source: https://labs.openai.com/e/nPu7o1UEaNfPtVOwCzdXZQU8/YF4Ethk3KAhodfQ8O4yKdH1F*/
+.parallaxMath {
+	background-image: url("images/mathWall.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
+/*Image Source: https://labs.openai.com/e/nPu7o1UEaNfPtVOwCzdXZQU8/YF4Ethk3KAhodfQ8O4yKdH1F*/
+.parallaxPhys {
+	background-image: url("images/physWall.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
+/*Image Source: https://www.freepik.com/free-photos-vectors/spanish-class*/
+.parallaxSpan {
+	background-image: url("images/spanWall.jpg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
+/*Source: https://www.w3schools.com/howto/howto_js_progressbar.asp*/
+.progress-bar {
+	height: 0.5em;
+	background: #F4F9E9;
+	width: 0%;
+	position: fixed;
+	z-index: 2;
+}
+
+.progress-container {
+	width: 100%;
+	height: 0.5em;
+	background: #000000;
+	position: fixed;
+	z-index: 2;
+}
