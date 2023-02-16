@@ -65,6 +65,19 @@ h5 {
 	margin-block-end: 0;
 }
 
+h6 {
+	text-align: center;
+	background-color: #153243;
+	color: #F4F9E9;
+	font-size: 3.5em;
+	border-radius: 0.25em;
+	width: 80%;
+	display: block;
+	font-family: Monaco, Copperplate, Georgia;
+	margin:0.3em;
+	margin-block-start:0;
+}
+
 p {
 	font-size: 1.4em;
 	background-color: #284B63;
