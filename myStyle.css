@@ -79,6 +79,7 @@ h6 {
 	margin-block-start:0;
 }
 
+
 p {
 	font-size: 1.4em;
 	background-color: #284B63;
@@ -258,8 +259,8 @@ a {
 }
 
 /*Image Source: https://i.redd.it/vxb5lk0zxra71.png*/
-.parallaxCS {
-	background-image: url("images/codeWall.jpg");
+.parallaxEducation {
+	background-image: url("images/educationWall.jpeg");
 	background-position: top;
 	height: 100%;
 	margin-block-start: 0em;
@@ -270,8 +271,8 @@ a {
 }
 
 /*Image Source: https://labs.openai.com/e/fw0XTJSIdyAN54x2x19mjGeO/m1TuMHjVWtrlltavzRlcHcg6*/
-.parallaxHum {
-	background-image: url("images/humWall.jpg");
+.parallaxProjects {
+	background-image: url("images/projectsWall.jpg");
 	background-position: top;
 	height: 100%;
 	margin-block-start: 0em;
@@ -281,41 +282,7 @@ a {
 	border-radius: 0em;
 }
 
-/*Image Source: https://labs.openai.com/e/nPu7o1UEaNfPtVOwCzdXZQU8/YF4Ethk3KAhodfQ8O4yKdH1F*/
-.parallaxMath {
-	background-image: url("images/mathWall.jpg");
-	background-position: top;
-	height: 100%;
-	margin-block-start: 0em;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 0em;
-}
 
-/*Image Source: https://labs.openai.com/e/nPu7o1UEaNfPtVOwCzdXZQU8/YF4Ethk3KAhodfQ8O4yKdH1F*/
-.parallaxPhys {
-	background-image: url("images/physWall.jpg");
-	background-position: top;
-	height: 100%;
-	margin-block-start: 0em;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 0em;
-}
-
-/*Image Source: https://www.freepik.com/free-photos-vectors/spanish-class*/
-.parallaxSpan {
-	background-image: url("images/spanWall.jpg");
-	background-position: top;
-	height: 100%;
-	margin-block-start: 0em;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 0em;
-}
 /*Image Source: https://labs.openai.com/e/cz0ZVFXsiMu4PkBlddSa6Ph1/original*/
 .parallaxSTEMI {
 	background-image: url("images/STEMIWall.jpg");
@@ -327,17 +294,7 @@ a {
 	background-size: cover;
 	border-radius: 0em;
 }
-/*Image generated using bing AI*/
-.parallaxSTEMII {
-	background-image: url("images/STEMIIWall.jpeg");
-	background-position: top;
-	height: 100%;
-	margin-block-start: 0em;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	border-radius: 0em;
-}
+
 
 .flex-row {
 	display: flex;
