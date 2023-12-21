@@ -258,7 +258,6 @@ a {
 	background: linear-gradient(rgba(0,0,0,0) 60%, rgba(180, 184, 171, 1) 100%);
 }
 
-/*Image Source: https://i.redd.it/vxb5lk0zxra71.png*/
 .parallaxEducation {
 	background-image: url("images/educationWall.jpeg");
 	background-position: top;
@@ -270,7 +269,6 @@ a {
 	border-radius: 0em;
 }
 
-/*Image Source: https://labs.openai.com/e/fw0XTJSIdyAN54x2x19mjGeO/m1TuMHjVWtrlltavzRlcHcg6*/
 .parallaxProjects {
 	background-image: url("images/projectsWall.jpg");
 	background-position: top;
