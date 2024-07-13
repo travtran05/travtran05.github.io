@@ -269,6 +269,17 @@ a {
 	border-radius: 0em;
 }
 
+.parallaxExperience {
+	background-image: url("images/experienceWall.jpeg");
+	background-position: top;
+	height: 100%;
+	margin-block-start: 0em;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 0em;
+}
+
 .parallaxProjects {
 	background-image: url("images/projectsWall.jpg");
 	background-position: top;
