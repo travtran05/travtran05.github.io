@@ -63,10 +63,24 @@ a:hover {
 .gold-link { color: var(--gold-deep); }
 .gold-link:hover { color: var(--ink); }
 
+/* ---------- safe-area cap (covers iOS dynamic island region) ---------- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  z-index: 101;
+  pointer-events: none;
+}
+
 /* ---------- progress bar ---------- */
 .progress-track {
   position: fixed;
-  top: 0; left: 0;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
   width: 100%;
   height: 4px;
   background: var(--paper-deep);
@@ -83,7 +97,7 @@ a:hover {
 /* ---------- nav (floating pill) ---------- */
 .pill-nav {
   position: fixed;
-  top: 22px;
+  top: calc(env(safe-area-inset-top, 0px) + 22px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 50;
@@ -297,24 +311,24 @@ a:hover {
 .docs li {
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 12px 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 14px 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
   gap: 12px;
-  min-height: 44px;
 }
 .docs li a {
   font-family: var(--f-body);
   font-size: 14px;
   font-weight: 500;
   color: var(--ink);
-  line-height: 1.35;
-  align-self: center;
+  line-height: 1.4;
   padding: 2px 8px;
   margin: 0 -8px;
   border-radius: 999px;
   background-color: transparent;
+  justify-self: start;
+  white-space: nowrap;
   transition: background-color 220ms ease, color 220ms ease;
 }
 .docs li a:hover {
@@ -328,6 +342,7 @@ a:hover {
   text-transform: uppercase;
   color: var(--ink-mute);
   flex-shrink: 0;
+  padding-top: 4px;
 }
 
 /* ---------- project card ---------- */
@@ -512,7 +527,7 @@ a:hover {
 
 /* ---------- responsive ---------- */
 @media (max-width: 880px) {
-  .pill-nav { top: 12px; padding: 4px; }
+  .pill-nav { top: calc(env(safe-area-inset-top, 0px) + 12px); padding: 4px; }
   .pill-nav .wordmark { padding: 4px 10px 4px 8px; }
   .pill-nav a:not(.wordmark) { padding: 6px 10px; font-size: 13px; }
 
@@ -524,10 +539,23 @@ a:hover {
     padding: 28px 0;
   }
   .proj-body { grid-template-columns: 1fr; gap: 24px; }
-  .proj-thumb { max-width: 260px; }
+  .proj-thumb {
+    max-width: 100%;
+    aspect-ratio: auto;
+    min-height: 240px;
+  }
+  .proj-thumb canvas,
+  .proj-thumb img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
 
   .courses { grid-template-columns: 1fr; }
-  .docs { grid-template-columns: 1fr; }
+  .docs {
+    grid-template-columns: 1fr;
+    border-right: 1px solid var(--line);
+  }
   .docs li { border-right: none; }
 
   .gallery { grid-template-columns: 1fr 1fr; }
