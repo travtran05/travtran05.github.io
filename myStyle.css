@@ -41,6 +41,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+html { background: var(--paper); }
+body { padding-top: env(safe-area-inset-top, 0px); }
 img { max-width: 100%; display: block; }
 
 /* ---------- links (ochre pill on hover) ---------- */
@@ -171,7 +173,7 @@ body::before {
 /* ---------- home hero (photo background) ---------- */
 .home-hero {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - env(safe-area-inset-top, 0px));
   min-height: 640px;
   display: flex;
   flex-direction: column;
