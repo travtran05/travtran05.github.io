@@ -78,26 +78,32 @@ a:hover {
    dynamic island region is covered. The progress fill is anchored to the
    bottom edge of the track, so it always reads as a 4px strip sitting right
    below the system UI — the cap stops exactly at the bottom of the scroll
-   bar and the floating pill-nav below it is never clipped. */
+   bar and the floating pill-nav below it is never clipped.
+
+   Implementation note: children are absolutely positioned (no flex) and the
+   element is promoted to its own GPU layer via translateZ(0). On iOS Safari
+   the combination of `position: fixed` + flex layout + a parent with
+   `isolation: isolate` can let descendant content from later in the DOM
+   composite ABOVE this cap; forcing a dedicated layer guarantees the
+   paper-coloured background always paints over the hero photo behind. */
 .progress-track {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
+  /* Safe-area + the 4px progress strip. The safe area shrinks to 0 in
+     Safari's collapsed-URL-bar state, which is fine — the iOS minibar
+     paints its own theme-color (#f3ede0) above us in that case. */
   height: calc(env(safe-area-inset-top, 0px) + 4px);
   background-color: var(--paper);
   z-index: 2147483646;
   pointer-events: none;
-  display: flex;
-  align-items: flex-end;
-}
-.progress-fill {
-  height: 4px;
-  width: 0%;
-  background: var(--gold);
-  transition: width 80ms linear;
-  position: relative;
-  z-index: 1;
+  /* Force its own compositing layer so iOS Safari can't paint hero photo
+     pixels through this cap. */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 /* The deeper-paper "track" line behind the fill (only shows in the 4px strip
    at the bottom of the cap, never above it). */
@@ -109,6 +115,17 @@ a:hover {
   bottom: 0;
   height: 4px;
   background-color: var(--paper-deep);
+  z-index: 0;
+}
+.progress-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--gold);
+  transition: width 80ms linear;
+  z-index: 1;
 }
 
 /* ---------- nav (floating pill) ---------- */
