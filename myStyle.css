@@ -66,6 +66,16 @@ a:hover {
 .gold-link:hover { color: var(--ink); }
 
 /* ---------- safe-area cap (covers iOS dynamic island region) ---------- */
+.safe-top-cap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--paper);
+  z-index: 1000;
+  pointer-events: none;
+}
 body::before {
   content: '';
   position: fixed;
