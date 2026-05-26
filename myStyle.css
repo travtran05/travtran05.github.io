@@ -42,7 +42,14 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 html { background: var(--paper); }
-body { padding-top: env(safe-area-inset-top, 0px); }
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  /* Make body the stacking-context root so fixed elements inside (the
+     progress-track cap) stack predictably above transformed descendants
+     like .reveal — iOS Safari has occasional layer-compositing quirks
+     where transformed children paint above fixed siblings without this. */
+  isolation: isolate;
+}
 img { max-width: 100%; display: block; }
 
 /* ---------- links (ochre pill on hover) ---------- */
@@ -71,24 +78,18 @@ a:hover {
    dynamic island region is covered. The progress fill is anchored to the
    bottom edge of the track, so it always reads as a 4px strip sitting right
    below the system UI — the cap stops exactly at the bottom of the scroll
-   bar and the floating pill-nav below it is never clipped.
-   translateZ(0) forces a GPU compositing layer so iOS Safari doesn't let
-   page content render on top of this fixed element during momentum scroll. */
+   bar and the floating pill-nav below it is never clipped. */
 .progress-track {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: calc(env(safe-area-inset-top, 0px) + 4px);
-  background: var(--paper);
-  z-index: 1001;
-  border-bottom: 1px solid var(--line-soft);
+  background-color: var(--paper);
+  z-index: 2147483646;
   pointer-events: none;
   display: flex;
   align-items: flex-end;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform;
 }
 .progress-fill {
   height: 4px;
@@ -107,7 +108,7 @@ a:hover {
   right: 0;
   bottom: 0;
   height: 4px;
-  background: var(--paper-deep);
+  background-color: var(--paper-deep);
 }
 
 /* ---------- nav (floating pill) ---------- */
