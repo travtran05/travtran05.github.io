@@ -3,6 +3,26 @@
    Scroll progress bar, reveal-on-scroll, PDF first-page thumbnails
    ============================================================ */
 
+// --- Preview-environment nav fix ------------------------------
+// On hosts that don't auto-serve folder/index.html (e.g. local file://
+// or sandboxed preview environments), rewrite nav links that point at a
+// directory to include `index.html` explicitly. GitHub Pages and the
+// production domain serve directory requests natively, so this is a no-op
+// there and clean URLs stay clean.
+(function () {
+  const host = location.hostname;
+  const isProd =
+    host === 'travtran.com' ||
+    host === 'www.travtran.com' ||
+    host.endsWith('.github.io');
+  if (isProd) return;
+  document.querySelectorAll('.pill-nav a[href]').forEach((a) => {
+    const href = a.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('http')) return;
+    if (href.endsWith('/')) a.setAttribute('href', href + 'index.html');
+  });
+})();
+
 // --- Open external links / docs in new tab -------------------
 // Nav links stay in-page; everything else gets target="_blank".
 (function () {
