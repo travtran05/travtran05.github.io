@@ -65,49 +65,49 @@ a:hover {
 .gold-link { color: var(--gold-deep); }
 .gold-link:hover { color: var(--ink); }
 
-/* ---------- safe-area cap (covers iOS dynamic island region + Safari top URL bar strip) ---------- */
-.safe-top-cap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* Extend just past the safe-area inset to cover the 4px progress bar strip
-     (so content scrolling under Safari's collapsing top URL bar is hidden by
-     the paper colour instead of bleeding through). Stops at the bottom of the
-     progress bar so the floating pill-nav below it is never clipped. */
-  height: calc(env(safe-area-inset-top, 0px) + 4px);
-  background: var(--paper);
-  z-index: 1000;
-  pointer-events: none;
-}
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: calc(env(safe-area-inset-top, 0px) + 4px);
-  background: var(--paper);
-  z-index: 101;
-  pointer-events: none;
-}
-
-/* ---------- progress bar ---------- */
+/* ---------- progress bar + safe-area cap (one element does both) ----------
+   The track sits at top: 0 and fills the whole safe-area zone with paper
+   colour, so any page content that scrolls under iOS Safari's status bar /
+   dynamic island region is covered. The progress fill is anchored to the
+   bottom edge of the track, so it always reads as a 4px strip sitting right
+   below the system UI — the cap stops exactly at the bottom of the scroll
+   bar and the floating pill-nav below it is never clipped.
+   translateZ(0) forces a GPU compositing layer so iOS Safari doesn't let
+   page content render on top of this fixed element during momentum scroll. */
 .progress-track {
   position: fixed;
-  top: env(safe-area-inset-top, 0px);
+  top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: var(--paper-deep);
+  height: calc(env(safe-area-inset-top, 0px) + 4px);
+  background: var(--paper);
   z-index: 1001;
   border-bottom: 1px solid var(--line-soft);
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
 }
 .progress-fill {
-  height: 100%;
+  height: 4px;
   width: 0%;
   background: var(--gold);
   transition: width 80ms linear;
+  position: relative;
+  z-index: 1;
+}
+/* The deeper-paper "track" line behind the fill (only shows in the 4px strip
+   at the bottom of the cap, never above it). */
+.progress-track::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--paper-deep);
 }
 
 /* ---------- nav (floating pill) ---------- */
