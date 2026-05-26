@@ -65,13 +65,17 @@ a:hover {
 .gold-link { color: var(--gold-deep); }
 .gold-link:hover { color: var(--ink); }
 
-/* ---------- safe-area cap (covers iOS dynamic island region) ---------- */
+/* ---------- safe-area cap (covers iOS dynamic island region + Safari top URL bar strip) ---------- */
 .safe-top-cap {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: env(safe-area-inset-top, 0px);
+  /* Extend just past the safe-area inset to cover the 4px progress bar strip
+     (so content scrolling under Safari's collapsing top URL bar is hidden by
+     the paper colour instead of bleeding through). Stops at the bottom of the
+     progress bar so the floating pill-nav below it is never clipped. */
+  height: calc(env(safe-area-inset-top, 0px) + 4px);
   background: var(--paper);
   z-index: 1000;
   pointer-events: none;
@@ -82,7 +86,7 @@ body::before {
   top: 0;
   left: 0;
   right: 0;
-  height: env(safe-area-inset-top, 0px);
+  height: calc(env(safe-area-inset-top, 0px) + 4px);
   background: var(--paper);
   z-index: 101;
   pointer-events: none;
@@ -96,7 +100,7 @@ body::before {
   width: 100%;
   height: 4px;
   background: var(--paper-deep);
-  z-index: 100;
+  z-index: 1001;
   border-bottom: 1px solid var(--line-soft);
 }
 .progress-fill {
