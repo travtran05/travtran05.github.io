@@ -595,3 +595,6 @@ a:hover {
   .gallery { grid-template-columns: 1fr 1fr; }
   .gallery div:nth-child(3) { grid-column: span 2; aspect-ratio: 16/9; }
 }
+
+/* project with no thumbnail: let the text fill the whole row */
+.proj-body > .proj-text:only-child { grid-column: 1 / -1; }
